@@ -31,7 +31,8 @@ public class PageFragment extends Fragment {
 		View view = inflater.inflate(R.layout.fragment_page, container, false);
 		TextView textView = view.findViewById(R.id.id_tv);
 		if (getArguments() != null) {
-			textView.setText(String.format("fragment %s", String.valueOf(getArguments().getInt(PAGE_NUMBER))));
+			String scrollViewText = getString(R.string.nested_scroll_view_text);
+			textView.setText(String.format("fragment%s%s", String.valueOf(getArguments().getInt(PAGE_NUMBER)), scrollViewText));
 		}
 		
 		return view;

@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class MyCustomPagerAdapter extends FragmentPagerAdapter {
 	
-	public static final int PAGE_NUM = 10;
+	private static final int PAGE_NUM = 3;
 	
 	public MyCustomPagerAdapter(FragmentManager fm) {
 		super(fm);
@@ -26,6 +26,18 @@ public class MyCustomPagerAdapter extends FragmentPagerAdapter {
 	@Nullable
 	@Override
 	public CharSequence getPageTitle(int position) {
-		return "Tab" + (position + 1);
+		if (position == 0) {
+			return "Profile";
+		}
+		
+		if (position == 1) {
+			return "Services";
+		}
+		
+		if (position == 2) {
+			return "Settings";
+		}
+		
+		return null;
 	}
 }

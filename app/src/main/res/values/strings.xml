@@ -3,4 +3,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nested_scroll_view_text">Although the parent sample already used ViewModels, as it was following an MVVM architecture, the Architecture Components have different restrictions by design.
+In the MVVM architecture, Views react to changes in the ViewModel without being explicitly called. However, the MVVM architecture presents some challenges when working with some Android components.A new SingleLiveEvent class is created, which extends MutableLiveData so its lifecycle-aware. Its used for communication between ViewModels and UI views (activities and fragments). Instead of holding data, it dispatches data once. This is important to prevent events being fired after a rotation, for example.
+A convenient use for this is navigation. There is no reference to the View from a ViewModel so the communication between them must happen via a subscription. ViewModels expose events like openTaskEvent and views subscribe to them. For example:</string>
 </resources>
