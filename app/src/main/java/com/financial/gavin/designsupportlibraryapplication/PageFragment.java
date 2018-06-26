@@ -4,6 +4,7 @@ package com.financial.gavin.designsupportlibraryapplication;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import android.widget.TextView;
 public class PageFragment extends Fragment {
 	
 	public static final String PAGE_NUMBER = "page_number";
+	
+	SwipeRefreshLayout swipeRefreshLayout;
 	
 	public PageFragment() {
 	}
@@ -35,7 +38,34 @@ public class PageFragment extends Fragment {
 			textView.setText(String.format("fragment%s%s", String.valueOf(getArguments().getInt(PAGE_NUMBER)), scrollViewText));
 		}
 		
+		swipeRefreshLayout = view.findViewById(R.id.swipe_refresh_layout);
+		swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+			@Override
+			public void onRefresh() {
+				updateData();
+			}
+		});
+		
 		return view;
+	}
+	
+	private void updateData() {
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				for (int i = 0; i < 50000000; i++) {
+					for (int j = 0; j < 10; j++) {
+					
+					}
+				}
+				swipeRefreshLayout.post(new Runnable() {
+					@Override
+					public void run() {
+						swipeRefreshLayout.setRefreshing(false);
+					}
+				});
+			}
+		}).start();
 	}
 	
 }
